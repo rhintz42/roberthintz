@@ -1,0 +1,140 @@
+<div class="outer_container">
+  <div class="site_header">
+    <div id="most_popular">
+      <div class="top_button">
+        Most Popular
+      </div>
+    </div>
+    <div id="favorites">
+      <div class="top_button">
+        Favorites
+        Cool
+        Man
+        FINALLY@
+      </div>
+    </div>
+  </div>
+  <div class="left_nav">
+  <div class="links_nav">
+    <p>
+      <b>Links in Current Folder:</b>
+    </p>
+    <div class="links_in_folder_container">
+    <% for link in @category.links do %>
+      <ul>
+        <li>
+          <%= link[:title] %> |
+          <%= link_to "Show", link_path(link) %> |
+          <%= link_to "goto", link[:url_path] %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+</div>
+  </div>
+  <div class="page_title_header">
+    <div class="title_category">
+      <p id="notice"><%= notice %></p>
+      <% if false then %>
+        <p>
+          <b>Picture:</b>
+          <%= @category.picture %>
+        </p>
+      <% end %>
+
+      <p>
+        <b>Folder:</b>
+        <% for parent in @parent_stack do %>
+          <%= link_to "/ "+parent[:title],
+                      category_path(parent) %>
+        <% end %>
+        <%= "/ "+@category.title %>
+      </p>
+
+      <p>
+        <b>Description:</b>
+        <%= @category.description %>
+      </p>
+    </div>
+    <div class="modification_container">
+      <p>
+      <%= link_to 'Create New Folder', {:controller => 'categories', :action => 'new', :parent_id => @category[:id]} %>
+      </p>
+      <p>
+        <%= link_to 'Create New Link', {:controller => 'links', :action => 'new', :category_id => @category[:id]} %>
+      </p>
+      <p>
+        <%= link_to 'Edit Directory', edit_category_path(@category) %>
+      </p>
+    </div>
+  </div>
+  
+  <div class="folder_container">
+    <table>
+      <tr>
+        <% a = 0 %>
+        <% for child in @category.children do %>
+          <td>
+            <div id="child-<%= child[:id] %>">
+              <div class="child_category">
+                <div class="category_header">
+      	          <p>
+                		<%= child[:title] %>
+                	</p>
+                </div>
+                <% for link in child.links do %>
+                  <ul>
+                    <li>
+                      <%= link[:title] %>
+                      <%= link_to "Show", link_path(link) %> |
+                      <%= link_to "goto", link[:url_path] %>
+                    </li>
+                  </ul>
+                <% end %>
+              </div>
+            </div>
+          </td>
+          <% a += 1 %>
+          <% if a == 2 then %>
+            <% a = 0 %>
+            </tr>
+            <tr>
+          <% end %>
+        <% end %>
+        <% if a == 0 then %>
+          <td></td>
+          <% a += 1 %>
+        <% end %>
+        <% if a == 1 then %>
+          <td></td>
+          <% a += 1 %>
+        <% end %>
+        <% if a == 2 then %>
+          </tr>
+        <% end %>
+    </table>
+  </div>
+</div>
+
+<script>
+  var most_popular = document.getElementById('most_popular');
+  most_popular.style.cursor = 'pointer';
+
+  most_popular.onclick = function() {
+    window.location.href = "/links";
+  }
+
+  var favorites = document.getElementById('favorites');
+  favorites.style.cursor = 'pointer';
+  favorites.onclick = function() {
+    window.location.href = "/links";
+  }
+
+<% for child in @category.children do %>
+  var child = document.getElementById('child-<%= child[:id] %>');
+  child.style.cursor = 'pointer';
+  child.onclick = function() {
+    window.location.href = "<%=category_path(child) %>";
+  }
+<% end %>
+</script>

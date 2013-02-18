@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Url path:</b>
+  <%= @link.url_path %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @link.title %>
+</p>
+
+<p>
+  <b>Picture path:</b>
+  <%= @link.picture_path %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @link.description %>
+</p>
+
+<p>
+  <b>Num clicks:</b>
+  <%= @link.num_clicks %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @link.category %>
+</p>
+
+
+<%= link_to 'Edit', edit_link_path(@link) %> |
+<%= link_to 'Back', links_path %>

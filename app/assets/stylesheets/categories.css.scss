@@ -1,0 +1,76 @@
+// Place all the styles related to the categories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.outer_container {
+	margin-top: -50px;
+	margin-left: 25px;
+	width: 1000px;
+}
+
+.site_header {
+	height: 50px;
+}
+
+.top_button {
+	border:2px solid #a1a1a1;
+	padding:10px 40px; 
+	background:#dddddd;
+	border-radius:25px;
+	float: left;
+	margin-left: 10px;
+}
+
+.category_header {
+	border-bottom: 2px solid blue;
+}
+
+.child_category {
+	border:2px solid #a1a1a1;
+	padding:10px 10px; 
+	background:#dddddd;
+	width:300px;
+	border-radius:25px;
+	margin: 10px;
+	float: left;
+}
+
+
+
+.links_in_folder_container {
+	float: left;
+}
+
+.modification_container {
+	float:right;
+}
+
+.title_category {
+	float:left;
+}
+
+.page_title_header {
+	float:right;
+	width:75%;
+	border-bottom: 2px solid blue;
+}
+
+.left_nav {
+	float:left;
+	width:18%;
+	min-height: 500px;
+	min-width: 250px;
+}
+
+.links_nav {
+	float:left;
+	width:100%;
+	//min-height: 100px;
+	//min-width: 250px;
+	border: 2px solid gray;
+}
+
+.folder_container {
+	float:left;
+	width: 600px;
+}

@@ -1,0 +1,68 @@
+<%= form_for(@category) do |f| %>
+  <% if @category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+      <% @category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :picture %><br />
+    <%= f.text_field :picture %>
+  </div>
+  <div class="field">
+    <%= f.label :parent_id %><br />
+    <%= f.text_field :parent_id %>
+  </div>
+  
+
+
+
+  <!-- This is for if I want to create a link as I create a category -->
+  <% if false then %>
+  <%= f.fields_for :link_paths do |links_form| %>
+      <div>
+        <%= links_form.label :url_path, 'URL:' %>
+        <%= links_form.text_field :url_path %>
+      </div>
+      <div>
+        <%= links_form.label :title, 'Title:' %>
+        <%= links_form.text_field :title %>
+      </div>
+      <div>
+        <%= links_form.label :picture_path, 'Picture Path:' %>
+        <%= links_form.text_field :picture_path %>
+      </div>
+      <div>
+        <%= links_form.label :description, 'Description:' %>
+        <%= links_form.text_field :description %>
+      </div>
+
+  <!-- The allow_destroy option in the model enables deletion of
+   child records. -->
+      <% unless links_form.object.new_record? %>
+        <div>
+          <%= links_form.label :_delete, 'Remove:' %>
+          <%= links_form.check_box :_delete %>
+        </div>
+      <% end %>
+  <% end %>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

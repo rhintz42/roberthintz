@@ -1,0 +1,27 @@
+// Place all the styles related to the rails_links controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.link_title {
+	a,
+	a:link,
+	a:visited {
+    	color: blue;
+    	font-weight: bold;
+    	background: none;
+    	text-decoration: none;
+	}
+
+
+}
+
+.left_div {
+	float: left;
+	width: 48%;
+	height: 300px;
+}
+
+.right_div {
+	float: right;
+	width: 48%;
+}

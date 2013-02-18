@@ -1,4 +1,16 @@
 Roberthintz::Application.routes.draw do
+  resources :links
+
+
+  resources :categories
+
+
+  get "rails_links/index"
+  get "rails_links/testing_rails"
+  get "rails_links/project_creation"
+  get "rails_links/rails_repository"
+  match "rails_links/" => "rails_links#index"
+  
   resources :users
 
 
