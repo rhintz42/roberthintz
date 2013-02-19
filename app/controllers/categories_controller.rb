@@ -14,10 +14,9 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @category = Category.find(params[:id])
-    
     current_category = @category
     @parent_stack = []
-    
+     
     while current_category.parent do
       @parent_stack.unshift(current_category.parent)
       current_category = current_category.parent
