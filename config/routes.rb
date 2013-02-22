@@ -4,7 +4,7 @@ Roberthintz::Application.routes.draw do
 
   resources :categories
 
-
+  match "signup" => "welcome#signup"
   get "rails_links/index"
   get "rails_links/testing_rails"
   get "rails_links/project_creation"
