@@ -38,7 +38,7 @@
           <%= @category.picture %>
         </p>
       <% end %>
-
+<% if false then %>
       <p>
         <b>Folder:</b>
         <% for parent in @parent_stack do %>
@@ -47,7 +47,7 @@
         <% end %>
         <%= "/ "+@category.title %>
       </p>
-
+<% end %>
       <p>
         <b>Description:</b>
         <%= @category.description %>
@@ -65,7 +65,7 @@
       </p>
     </div>
   </div>
-  
+  <% if false then %>  
   <div class="folder_container">
     <table>
       <tr>
@@ -111,8 +111,9 @@
         <% end %>
     </table>
   </div>
+  <% end %>
 </div>
-
+<% if false then %>
 <script>
   var most_popular = document.getElementById('most_popular');
   most_popular.style.cursor = 'pointer';
@@ -135,3 +136,4 @@
   }
 <% end %>
 </script>
+<% end %>

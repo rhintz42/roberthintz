@@ -13,14 +13,16 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+    require "debugger"
+    debugger
     @category = Category.find(params[:id])
     current_category = @category
-    @parent_stack = []
-     
-    while current_category.parent do
-      @parent_stack.unshift(current_category.parent)
-      current_category = current_category.parent
-    end
+    #@parent_stack = []
+    # 
+    #while current_category.parent do
+    #  @parent_stack.unshift(current_category.parent)
+    #  current_category = current_category.parent
+    #end
 
     respond_to do |format|
       format.html # show.html.erb
