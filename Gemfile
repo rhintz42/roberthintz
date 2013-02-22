@@ -26,8 +26,10 @@ gem 'mechanize'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "guard-rspec"
   gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
-  #gem 'rack-livereload'
   gem 'guard-livereload'
   gem 'rb-readline'
 end
@@ -45,4 +47,4 @@ end
 # gem 'capistrano'
 
 # To use debugger
-gem 'debugger'
+#gem 'debugger'
