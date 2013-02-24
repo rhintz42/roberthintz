@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130222070705) do
+ActiveRecord::Schema.define(:version => 20130224071645) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -37,8 +37,9 @@ ActiveRecord::Schema.define(:version => 20130222070705) do
   create_table "parent_to_children", :force => true do |t|
     t.integer  "parent_id"
     t.integer  "child_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "Categories_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -47,9 +48,13 @@ ActiveRecord::Schema.define(:version => 20130222070705) do
     t.string   "picture_path"
     t.string   "username"
     t.string   "email"
-    t.string   "password"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.string   "password_digest"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+    t.string   "profile_photo"
+    t.string   "auth_token"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
 end

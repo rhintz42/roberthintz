@@ -13,8 +13,8 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    require "debugger"
-    debugger
+    #require "debugger"
+    #debugger
     @category = Category.find(params[:id])
     current_category = @category
     #@parent_stack = []
@@ -34,9 +34,9 @@ class CategoriesController < ApplicationController
   # GET /categories/new.json
   def new
     @category = Category.new
-    if params[:parent_id] then
-      @category[:parent_id] = params[:parent_id].to_i
-    end
+    #if params[:parent_id] then
+    #  @category[:parent_id] = params[:parent_id].to_i
+    #end
     #This is for if I want to create a link already with this category
     #@category.link_paths.build
     

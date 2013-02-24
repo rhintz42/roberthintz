@@ -5,12 +5,20 @@ Roberthintz::Application.routes.draw do
   resources :categories
 
   match "signup" => "welcome#signup"
+  get "login" => "sessions#new", :as => "login"
+  get "logout" => "sessions#destroy", :as => "logout"
+
+  resources :sessions
+  resources :password_resets
+
   get "rails_links/index"
   get "rails_links/testing_rails"
   get "rails_links/project_creation"
   get "rails_links/rails_repository"
   match "rails_links/" => "rails_links#index"
   
+  get "users/reset"
+  post "users/reset_password"
   resources :users
 
 

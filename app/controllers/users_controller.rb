@@ -40,8 +40,10 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    #require 'debugger'
+    #debugger
     @user = User.new(params[:user])
-
+    
     respond_to do |format|
       if @user.save
         #Want to send email in this case
@@ -76,6 +78,31 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
+
+    respond_to do |format|
+      format.html { redirect_to users_url }
+      format.json { head :no_content }
+    end
+  end
+  
+  # GET /users/reset
+  # GET /users/reset.json
+  def reset
+    
+  end
+
+  # POST /users/reset_password
+  # POST /users/reset_password.json
+  def reset_password
+    @user = User.find_by_username(params[:username]) if params[:username].length > 0
+    
+    if not @user then
+      @user = User.find_by_email(params[:email]) if params[:email].length > 0
+    end
+    
+    if not @user then
+      return redirect_to users_reset_url, notice: "Username or Email not found"
+    end
 
     respond_to do |format|
       format.html { redirect_to users_url }

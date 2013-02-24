@@ -27,6 +27,8 @@ Roberthintz::Application.configure do
     password: "astudent42"
   }
 
+  config.action_mailer.default_url_options = { host: "localhost:3000" }
+
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
@@ -45,6 +47,8 @@ Roberthintz::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 
   #config.middleware.insert_before(
   #  Rack::Lock, Rack::LiveReload,

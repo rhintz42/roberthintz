@@ -23,6 +23,10 @@ end
 gem 'jquery-rails'
 gem 'thin'
 gem 'mechanize'
+gem 'bcrypt-ruby', :require => "bcrypt"
+#gem 'mini_magick'
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem "carrierwave"
 
 group :development, :test do
   gem 'rspec-rails'
