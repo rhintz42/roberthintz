@@ -12,7 +12,3 @@
  *= require_tree .
  */
 
-.outer_wrapper {
-	min-width: 1000px;
-	max-width: 1200px;
-}
