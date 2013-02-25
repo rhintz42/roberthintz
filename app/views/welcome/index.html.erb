@@ -1,191 +1,93 @@
-  <div class="outer_wrapper">
-    
-    <div class="navbar navbar-fixed-top navbar-inverse">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="#">
-            Brand
-          </a>
-          <ul class="nav">
-            <li>
-              <%= link_to "Rails Links", :rails_links %>
+<div class="outer_wrapper">
+
+  <div class="header_wrapper">
+    <div class="header_left">
+      <%= image_tag("rails.png") %>
+    </div>
+
+    <div class="header_center">
+      <p>RobertHintz.com</p>
+    </div>
+
+    <div class="header_right">
+      <div class="header_right_div">
+        <a href="<%= new_user_path %>" class="header_right_button">
+          Signup
+        </a>
+      </div>
+      <div class="header_right_div">
+        <a href="#" class="header_right_button">
+          Help (Not Functional)
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+<!--
+<div class="outer_wrapper">
+  
+  <div class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="#">
+          Brand
+        </a>
+        <ul class="nav">
+          <li>
+            <%= link_to "Rails Links", :rails_links %>
+          </li>
+          <li>
+            <a href="#">
+              Link 2
+            </a>
+          </li>
+          <li>
+            <%= link_to "Edit Place", edit_password_reset_path(1) %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span3">
+        <div class="well sidebar-nav">
+          <ul class="nav nav-list">
+            <li class="nav-header">
+              Sites I Write For
             </li>
             <li>
-              <a href="#">
-                Link 2
+            </li>
+            <li class="">
+              <a href="http://www.botanicalmap.com">
+                HP Linux Server - Home
               </a>
             </li>
-            <li>
-              <%= link_to "Edit Place", edit_password_reset_path(1) %>
+            <li class="">
+              <a href="http://www.botanicalmaps.com">
+                BotanicalMaps.com
+              </a>
+            </li>
+            <li class="">
+              <a href="http://plantparent.herokuapp.com">
+                PlantParent - CS147 Final Project
+              </a>
+            </li>
+            <li class="">
+              <a href="http://www.botanicalquestion.com">
+                NodeJS Amazon Server
+              </a>
             </li>
           </ul>
         </div>
       </div>
     </div>
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">
-                Sites I Write For
-              </li>
-              <li>
-              </li>
-              <li class="">
-                <a href="http://www.botanicalmap.com">
-                  HP Linux Server - Home
-                </a>
-              </li>
-              <li class="">
-                <a href="http://www.botanicalmaps.com">
-                  BotanicalMaps.com
-                </a>
-              </li>
-              <li class="">
-                <a href="http://plantparent.herokuapp.com">
-                  PlantParent - CS147 Final Project
-                </a>
-              </li>
-              <li class="">
-                <a href="http://www.botanicalquestion.com">
-                  NodeJS Amazon Server
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="span9">
-          <div class="hero-unit">
-            <div id="welcome_top_message">
-              <h1>
-                Hello, world!
-              </h1>
-              <p>
-                Welcome to my website where I provide all my thoughts, feelings, projects,
-                and resume. Feel free to explore at your will and give me any feedback
-                you desire!
-              </p>
-            </div>
-            <a class="btn btn-primary" href="#">
-              Learn more »
-            </a>
-          </div>
-          <div class="row-fluid">
-            <div class="span4">
-              <div>
-                <h2>
-                  Heading
-                </h2>
-                <p>
-                  Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
-                  ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
-                  sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed
-                  odio dui.
-                </p>
-              </div>
-              <a class="btn" href="#">
-                View details »
-              </a>
-            </div>
-            <div class="span4">
-              <div>
-                <h2>
-                  Heading
-                </h2>
-                <p>
-                  Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
-                  ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
-                  sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed
-                  odio dui.
-                </p>
-              </div>
-              <a class="btn" href="#">
-                View details »
-              </a>
-            </div>
-            <div class="span4">
-              <div>
-                <h2>
-                  Heading
-                </h2>
-                <p>
-                  Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
-                  ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
-                  sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed
-                  odio dui.
-                </p>
-              </div>
-              <a class="btn" href="#">
-                View details »
-              </a>
-            </div>
-          </div>
-          <div class="row-fluid">
-            <div class="span4">
-              <div>
-                <h2>
-                  Heading
-                </h2>
-                <p>
-                  Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
-                  ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
-                  sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed
-                  odio dui.
-                </p>
-              </div>
-              <a class="btn" href="#">
-                View details »
-              </a>
-            </div>
-            <div class="span4">
-              <div>
-                <h2>
-                  Heading
-                </h2>
-                <p>
-                  Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
-                  ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
-                  sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed
-                  odio dui.
-                </p>
-              </div>
-              <a class="btn" href="#">
-                View details »
-              </a>
-            </div>
-            <div class="span4">
-              <div>
-                <h2>
-                  Heading
-                </h2>
-                <p>
-                  Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
-                  ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
-                  sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed
-                  odio dui.
-                </p>
-              </div>
-              <a class="btn" href="#">
-                View details »
-              </a>
-            </div>
-          </div>
-          <hr>
-          <div>
-            © Company 2012
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
-
-    <style>
-      
-    </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
-    </script>
-    
-    <!--
-    <script src="assets/js/bootstrap.js">
-    </script>-->
+</div>
+-->

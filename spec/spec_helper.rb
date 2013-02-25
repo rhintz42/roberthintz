@@ -37,8 +37,10 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
-
+  
+  #This is to add macros for the mailer that we specify (from support/mailer_macros.rb)
   config.include(MailerMacros)
+  #This is so that the mailer resets before reach test
   config.before(:each) { reset_email }
 
   #This is to add Capybara methods to rspec
