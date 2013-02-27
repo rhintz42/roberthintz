@@ -19,11 +19,58 @@
     </style>
 </head>
 <body>
-  <div id="container">
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    <% end %>
-    <%= yield %>
+  <div class="outer_wrapper">
+
+    <div class="header_wrapper">
+      <div class="header_left">
+        <%= image_tag("rails.png") %>
+      </div>
+
+      <div class="header_center">
+        <!--
+          <p>RobertHintz.com</p>
+        -->
+        <p>
+          Site
+        </p>
+      </div>
+
+      <div class="header_right">
+        <div class="header_right_div">
+          <a href="<%= new_user_path %>" class="header_right_button">
+            Signup
+          </a>
+        </div>
+        <div class="header_right_div">
+          <a href="#" class="header_right_button">
+            Help (Not Functional)
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="under_header_tabs">
+      <div class="under_header_tab">
+        <a href="#" class="under_header_tab_button">Home</a>
+      </div>
+      <div class="under_header_tab">
+        <a href="#" class="under_header_tab_button">About</a>
+      </div>
+      <div class="under_header_tab">
+        <a href="#" class="under_header_tab_button">Folder System</a>
+      </div>
+      <div class="under_header_tab">
+        <a href="<%= servers_path %>" class="under_header_tab_button">Servers</a>
+      </div>
+    </div>
+    <div class="under_header_wrapper">
+
+      <div id="container">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <% end %>
+        <%= yield %>
+      </div>
+    </div>
   </div>
 </body>
 </html>

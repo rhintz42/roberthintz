@@ -24,9 +24,12 @@ gem 'jquery-rails'
 gem 'thin'
 gem 'mechanize'
 gem 'bcrypt-ruby', :require => "bcrypt"
-#gem 'mini_magick'
+gem 'mini_magick', :git => "git://github.com/minimagick/minimagick.git"
+#gem 'rmagick'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem "carrierwave"
+
+gem "imgkit"
 
 group :development, :test do
   gem 'rspec-rails'

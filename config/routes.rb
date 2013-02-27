@@ -1,12 +1,14 @@
 Roberthintz::Application.routes.draw do
+  #get "servers/index"
+
   resources :links
-
-
   resources :categories
+  resources :servers
 
   match "signup" => "welcome#signup"
   get "login" => "sessions#new", :as => "login"
   get "logout" => "sessions#destroy", :as => "logout"
+  get "welcome/javascript_test"
 
   resources :sessions
   resources :password_resets

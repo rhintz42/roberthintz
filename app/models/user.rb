@@ -16,6 +16,18 @@ class User < ActiveRecord::Base
 
   mount_uploader :profile_photo, ProfilePhotoUploader
 
+  after_create :take_profile_photo
+
+  def take_profile_photo
+    file = Tempfile.new(["template_#{self.id.to_s}", 'jpg'], 'tmp', :encoding => 'ascii-8bit')
+    #require 'debugger'
+    #debugger
+    file.write(IMGKit.new(self.profile_photo, quality: 50, width: 600).to_jpg)
+    self.profile_photo = file
+    file.unlink
+    self.save
+  end
+
   before_create { generate_token(:auth_token) }
 
   def send_password_reset

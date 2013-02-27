@@ -1,0 +1,19 @@
+<h1>
+  Reset Password
+</h1>
+<p>
+  Put in your username or email and click submit to reset your password. 
+  When you click the reset password button, an email will be sent to your email with the new password reset
+</p>
+
+<%= form_tag users_reset_password_path do %>
+  <div class="field">
+    <%= label_tag :username %>
+    <%= text_field_tag :username %>
+  </div>
+  <div class="field">
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+  </div>
+  <div class="actions"><%= submit_tag "Reset Password" %></div>
+<% end %>

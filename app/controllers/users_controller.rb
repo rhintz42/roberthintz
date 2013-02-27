@@ -61,9 +61,53 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
+    #debugger
+    #@user[:profile_photo] = 'http://www.google.com'
+
+    require 'imgkit'
+    file = Tempfile.new(["template_3", '.png'], 'tmp', :encoding => 'ascii-8bit')
+    file.write(IMGKit.new('http://www.facebook.com', quality: 100, height: 1000).to_jpg)
+    #debugger
+    file.flush
+    #debugger
+    #image = image.resize_to_fit!(72.0, 72.0)
+    #require 'mini_magick'
+    #debugger
+    #image = MiniMagick::Image.open(IMGKit.new('http://www.roberthintz.com', quality: 100, height: 300, width: 50).to_jpg)
+    #debugger
+    image = MiniMagick::Image.open(file.path)
+    image.resize "100x100"
+    image.write file.path
+    @user.profile_photo = file
+    file.unlink
+    @user.save
+    #file = File.new("kat.jpg", 'wb')
+
+=begin
+#  THIS IS A WORKING IMPLEMENTATION OF IMGKit
+    
+    require 'imgkit'
+    kit = IMGKit.new("http://www.google.com")
+    file = File.new("public/uploads/user/profile_photo/3/kat.jpg", 'wb')
+
+    img = kit.to_img(:jpg)
+    file.write(img)
+    file.close
+
+    image = MiniMagick::Image.open(file.path)
+    image.resize "300x300"
+    image.write file.path
+=end
+    #file = Tempfile.new(["template_3", 'jpg'], 'tmp', :encoding => 'ascii-8bit')
+    #file.write(IMGKit.new("http://www.google.com", quality: 50, width: 600).to_jpg)
+    #file.flush
+    #@user[:profile_photo] = file.path
+
+    #@user[:profile_photo] = f.path
 
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      #if @user.update_attributes(params[:user])
+      if true
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
