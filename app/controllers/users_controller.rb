@@ -75,9 +75,9 @@ class UsersController < ApplicationController
     #debugger
     #image = MiniMagick::Image.open(IMGKit.new('http://www.roberthintz.com', quality: 100, height: 300, width: 50).to_jpg)
     #debugger
-    image = MiniMagick::Image.open(file.path)
-    image.resize "100x100"
-    image.write file.path
+    #image = MiniMagick::Image.open(file.path)
+    #image.resize "100x100"
+    #image.write file.path
     @user.profile_photo = file
     file.unlink
     @user.save
