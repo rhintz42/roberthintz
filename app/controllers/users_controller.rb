@@ -45,11 +45,14 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     #In order for this to work on Heroku, we need to put our images on S3 instead.
     #This is because Heroku is read only for the directory level and such
+=begin
+    #REMOVE FOR HEROKU FOR NOW UNTIL WE GET S3 UP
     file = Tempfile.new(["template_3", '.png'], 'tmp', :encoding => 'ascii-8bit')
     file.write(IMGKit.new('http://www.facebook.com', quality: 100, height: 1000).to_jpg)
     file.flush
     @user.profile_photo = file
     file.unlink
+=end
 =begin
     #THIS IS ANOTHER WAY
     #snap = WebSnap::Snapper.new('http://google.com', :format => 'png')
