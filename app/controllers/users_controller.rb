@@ -44,6 +44,12 @@ class UsersController < ApplicationController
     #debugger
     @user = User.new(params[:user])
     
+    file = Tempfile.new(["template_3", '.png'], 'tmp', :encoding => 'ascii-8bit')
+    file.write(IMGKit.new('http://www.facebook.com', quality: 100, height: 1000).to_jpg)
+    file.flush
+    @user.profile_photo = file
+    file.unlink
+    
     respond_to do |format|
       if @user.save
         #Want to send email in this case
