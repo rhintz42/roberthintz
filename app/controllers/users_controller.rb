@@ -43,17 +43,20 @@ class UsersController < ApplicationController
     #require 'debugger'
     #debugger
     @user = User.new(params[:user])
-    
-    #file = Tempfile.new(["template_3", '.png'], 'tmp', :encoding => 'ascii-8bit')
-    #file.write(IMGKit.new('http://www.facebook.com', quality: 100, height: 1000).to_jpg)
-    #file.flush
-    #@user.profile_photo = file
-    #file.unlink
-    snap = WebSnap::Snapper.new('http://google.com', :format => 'png')
-    png = snap.to_bytes
-    file = snap.to_file('public/other.png')
+    #In order for this to work on Heroku, we need to put our images on S3 instead.
+    #This is because Heroku is read only for the directory level and such
+    file = Tempfile.new(["template_3", '.png'], 'tmp', :encoding => 'ascii-8bit')
+    file.write(IMGKit.new('http://www.facebook.com', quality: 100, height: 1000).to_jpg)
+    file.flush
     @user.profile_photo = file
-    
+    file.unlink
+=begin
+    #THIS IS ANOTHER WAY
+    #snap = WebSnap::Snapper.new('http://google.com', :format => 'png')
+    #png = snap.to_bytes
+    #file = snap.to_file('public/other.png')
+    #@user.profile_photo = file
+=end
     respond_to do |format|
       if @user.save
         #Want to send email in this case
