@@ -74,9 +74,9 @@ Roberthintz::Application.configure do
   config.active_support.deprecation = :notify
   
   #THIS IS FOR ADDING IMGKit To Production For Heroku
-  #IMGKit.configure do |config|
-  #  config.wkhtmltoimage = Rails.root.join('bin', 'wkhtmltoimage-amd64').to_s if ENV['RACK_ENV'] == 'production'
-  #end
+  IMGKit.configure do |config|
+    config.wkhtmltoimage = Rails.root.join('bin', 'wkhtmltoimage-amd64').to_s if ENV['RACK_ENV'] == 'production'
+  end
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
