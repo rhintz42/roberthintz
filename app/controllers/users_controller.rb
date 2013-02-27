@@ -53,13 +53,13 @@ class UsersController < ApplicationController
     @user.profile_photo = file
     file.unlink
 =end
-=begin
+#=begin
     #THIS IS ANOTHER WAY
-    #snap = WebSnap::Snapper.new('http://google.com', :format => 'png')
-    #png = snap.to_bytes
-    #file = snap.to_file('public/other.png')
-    #@user.profile_photo = file
-=end
+    snap = WebSnap::Snapper.new('http://google.com', :format => 'jpg')
+    png = snap.to_bytes
+    file = snap.to_file(@user.profile_photo.path)
+    #@user.profile_photo = file.path
+#=end
     respond_to do |format|
       if @user.save
         #Want to send email in this case
