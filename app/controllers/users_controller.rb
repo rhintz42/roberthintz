@@ -43,13 +43,17 @@ class UsersController < ApplicationController
     #require 'debugger'
     #debugger
     @user = User.new(params[:user])
-    #file = Tempfile.new(["template_3", '.jpg'], 'public/uploads', :encoding => 'ascii-8bit')
-
-    snap = WebSnap::Snapper.new('http://www.google.com', :format => 'png')
-    png = snap.to_bytes
-    file = snap.to_file(@user.profile_photo.path)
-    #@user.profile_photo = file
-    #file.unlink
+    if @user.profile_photo.path == nil then
+      file = Tempfile.new(["template_3", '.jpg'], 'public/uploads', :encoding => 'ascii-8bit')
+      snap = WebSnap::Snapper.new('http://www.facebook.com', :format => 'jpg')
+      jpg = snap.to_bytes
+      @user.profile_photo = file
+      snap.to_file(@user.profile_photo.path)
+      file.unlink
+    end
+    snap = WebSnap::Snapper.new('http://www.facebook.com', :format => 'jpg')
+    jpg = snap.to_bytes
+    snap.to_file(@user.profile_photo.path)
     
     respond_to do |format|
       if @user.save
