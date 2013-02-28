@@ -49,7 +49,7 @@ Roberthintz::Application.configure do
   config.assets.debug = true
   
   Paperclip.options[:command_path] = "/usr/local/bin/"
-
+  
   #config.middleware.insert_before(
   #  Rack::Lock, Rack::LiveReload,
   #  :min_delay => 500,

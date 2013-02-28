@@ -42,33 +42,19 @@ class UsersController < ApplicationController
   def create
     #require 'debugger'
     #debugger
-    @user = User.new(params[:user])                                                                                       
-     
-    #file = Tempfile.new(["template_3", '.jpg'], 'public/uploads', :encoding => 'ascii-8bit')                              
-     
-    snap = WebSnap::Snapper.new('http://www.google.com', :format => 'jpg')                                               
-    jpg = snap.to_bytes                                                                                                   
-    snap.to_file(@user.profile_photo.path)                                                                                               
-    #file.flush                                                                                                            
-    #@user.profile_photo = file                                                                                            
-    #file.unlink
-    #In order for this to work on Heroku, we need to put our images on S3 instead.
-    #This is because Heroku is read only for the directory level and such
-=begin
-    #REMOVE FOR HEROKU FOR NOW UNTIL WE GET S3 UP
-    file = Tempfile.new(["template_3", '.png'], 'tmp', :encoding => 'ascii-8bit')
-    file.write(IMGKit.new('http://www.facebook.com', quality: 100, height: 1000).to_jpg)
+    @user = User.new(params[:user])
+    
+    file = Tempfile.new(["template_3", '.jpg'], 'public/uploads', :encoding => 'ascii-8bit')
+
+    snap = WebSnap::Snapper.new('http://www.youtube.com', :format => 'jpg')
+    jpg = snap.to_bytes
+    snap.to_file(file.path)
     file.flush
+
     @user.profile_photo = file
     file.unlink
-=end
-#=begin
-    #THIS IS ANOTHER WAY
-    #snap = WebSnap::Snapper.new('http://google.com', :format => 'jpg')
-    #png = snap.to_bytes
-    #file = snap.to_file(@user.profile_photo.path)
     #@user.profile_photo = file.path
-#=end
+    
     respond_to do |format|
       if @user.save
         #Want to send email in this case
@@ -86,31 +72,8 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
-    #debugger
-    #@user[:profile_photo] = 'http://www.google.com'
-
-    require 'imgkit'
-    file = Tempfile.new(["template_3", '.png'], 'tmp', :encoding => 'ascii-8bit')
-    file.write(IMGKit.new('http://www.facebook.com', quality: 100, height: 1000).to_jpg)
-    #debugger
-    file.flush
-    #debugger
-    #image = image.resize_to_fit!(72.0, 72.0)
-    #require 'mini_magick'
-    #debugger
-    #image = MiniMagick::Image.open(IMGKit.new('http://www.roberthintz.com', quality: 100, height: 300, width: 50).to_jpg)
-    #debugger
-    #image = MiniMagick::Image.open(file.path)
-    #image.resize "100x100"
-    #image.write file.path
-    @user.profile_photo = file
-    file.unlink
-    @user.save
-    #file = File.new("kat.jpg", 'wb')
-
 =begin
-#  THIS IS A WORKING IMPLEMENTATION OF IMGKit
-    
+    #THIS WORKS ON MAC BUT DOES NOT WORK ON LINUX MACHINE
     require 'imgkit'
     kit = IMGKit.new("http://www.google.com")
     file = File.new("public/uploads/user/profile_photo/3/kat.jpg", 'wb')
@@ -123,16 +86,8 @@ class UsersController < ApplicationController
     image.resize "300x300"
     image.write file.path
 =end
-    #file = Tempfile.new(["template_3", 'jpg'], 'tmp', :encoding => 'ascii-8bit')
-    #file.write(IMGKit.new("http://www.google.com", quality: 50, width: 600).to_jpg)
-    #file.flush
-    #@user[:profile_photo] = file.path
-
-    #@user[:profile_photo] = f.path
-
     respond_to do |format|
-      #if @user.update_attributes(params[:user])
-      if true
+      if @user.update_attributes(params[:user])
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
