@@ -5,8 +5,8 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-#gem 'sqlite3'
-gem 'pg'
+gem 'sqlite3'
+#gem 'pg'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -28,7 +28,7 @@ gem 'mini_magick', :git => "git://github.com/minimagick/minimagick.git"
 #gem 'rmagick'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem "carrierwave"
-
+gem 'fog'
 gem "imgkit"
 gem 'websnap'
 group :development, :test do
