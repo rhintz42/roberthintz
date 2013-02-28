@@ -42,7 +42,16 @@ class UsersController < ApplicationController
   def create
     #require 'debugger'
     #debugger
-    @user = User.new(params[:user])
+    @user = User.new(params[:user])                                                                                       
+     
+    file = Tempfile.new(["template_3", '.jpg'], 'public/uploads', :encoding => 'ascii-8bit')                              
+     
+    snap = WebSnap::Snapper.new('http://www.google.com', :format => 'jpg')                                               
+    jpg = snap.to_bytes                                                                                                   
+    snap.to_file(file.path)                                                                                               
+    file.flush                                                                                                            
+    @user.profile_photo = file                                                                                            
+    file.unlink
     #In order for this to work on Heroku, we need to put our images on S3 instead.
     #This is because Heroku is read only for the directory level and such
 =begin
@@ -55,9 +64,9 @@ class UsersController < ApplicationController
 =end
 #=begin
     #THIS IS ANOTHER WAY
-    snap = WebSnap::Snapper.new('http://google.com', :format => 'jpg')
-    png = snap.to_bytes
-    file = snap.to_file(@user.profile_photo.path)
+    #snap = WebSnap::Snapper.new('http://google.com', :format => 'jpg')
+    #png = snap.to_bytes
+    #file = snap.to_file(@user.profile_photo.path)
     #@user.profile_photo = file.path
 #=end
     respond_to do |format|
