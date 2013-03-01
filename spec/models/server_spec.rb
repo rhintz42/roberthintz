@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe "servers/index.html.erb" do
+describe Server do
   pending "add some examples to (or delete) #{__FILE__}"
 end

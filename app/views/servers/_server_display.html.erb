@@ -1,0 +1,17 @@
+<div class = "server_div">
+	<a href="<%= server_url %>" target="_blank">
+    <%= server_name %>
+  </a>
+  <div>
+    <h3>Description</h3>
+    <p><%= server_description %></p>
+  </div>
+  <p>
+  	<% if server_id then %>
+	    <%= link_to "Edit", edit_server_path(server_id) %> | 
+	    <%= link_to "destroy", server,
+	                           method: :delete,
+	                           data: { confirm: 'Are you sure?'} %>
+    <% end %>
+  </p>
+</div>

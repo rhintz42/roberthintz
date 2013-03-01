@@ -12,6 +12,14 @@
  *= require_tree .
  */
 
+.outer_header_wrapper {
+	background-color: #7AF57E;
+	margin-left: -10px;
+	margin-right: 10px;
+	margin-top: -8px;
+	width: 102%;
+	height: 200px;
+}
 
 a:hover {
 	text-decoration: none;
@@ -33,21 +41,27 @@ a:visited {
 .header_right {
 	float: right;
 	padding: 2px;
-
-	.header_right_div {
-		float: left;
-		padding: 2px;
-	}
 }
 
-.header_wrapper {
+.header_right .header_right_div {
+	float: left;
+	padding: 2px;
+}
+.header_outer_wrapper {
+	margin-top: -8px;
+	width: 102%;
+	min-width: 950px;
+	height: 100px;
+	margin-left: -10px;
+	margin-right: 10px;
+	margin-top: -8px;
+	background-color: #7AF57E;
+}
+.header_inner_wrapper {
 	width: 950px;
-	height: 50px;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 20px 0px;
-
-	background-color: #7AF57E;
+	padding: 18px 0px;
 }
 
 .outer_wrapper {
@@ -56,23 +70,32 @@ a:visited {
 	height: 200px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: -8px;
 	background-color: #6DE0F7;
 }
 
 .under_header_tabs {
 	float: left;
 	clear: both;
+	width: 100%;
+	background-color: #CFCFCF;
 }
 
 .under_header_tab {
 	float: left;
+	margin: 0px 10px;
+}
+
+.top_bottom_tab_row_border {
+	width: 100%;
+	height: 5px;
+	background-color: black;
+	clear: both;
 }
 
 .under_header_wrapper {
+	float: left;
 	clear: both;
 	width: 100%;
-	height: 400px;
 	background-color: grey;
 }
 

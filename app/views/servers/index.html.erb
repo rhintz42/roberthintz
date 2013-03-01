@@ -1,43 +1,107 @@
-
-<div class = "server_div">
-	<a href="http://www.botanicalmap.com">
-    HP Linux Server - Home
-  </a>
+<div class="servers_options">
+  <%= link_to "Add Server", new_server_path %>
 </div>
-<!--
-<div class="container-fluid">
-    <div class="row-fluid">
-      <div class="span3">
-        <div class="well sidebar-nav">
-          <ul class="nav nav-list">
-            <li class="nav-header">
-              Sites I Write For
-            </li>
-            <li>
-            </li>
-            <li class="">
-              <a href="http://www.botanicalmap.com">
-                HP Linux Server - Home
-              </a>
-            </li>
-            <li class="">
-              <a href="http://www.botanicalmaps.com">
-                BotanicalMaps.com
-              </a>
-            </li>
-            <li class="">
-              <a href="http://plantparent.herokuapp.com">
-                PlantParent - CS147 Final Project
-              </a>
-            </li>
-            <li class="">
-              <a href="http://www.botanicalquestion.com">
-                NodeJS Amazon Server
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  -->
+<% for server in @servers do %>
+  <%= render :partial => "server_display",
+             :locals => {:server => server,
+                         :server_name => server.name,
+                         :server_url => server.url,
+                         :server_description => server.description,
+                         :server_id => server[:id] } %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% if false then %>
+  <%= render :partial => "server_display",
+             :locals => {:server => nil,
+                         :server_name => "HP Linux Server - Home",
+                         :server_url => "http://www.botanicalmap.com",
+                         :server_description => "This server is for NodeJS Developement",
+                         :server_id => nil } %>
+
+  <%= render :partial => "server_display",
+             :locals => {:server => nil,
+                         :server_name => "progressbar.io",
+                         :server_url => "http://www.progressbar.io",
+                         :server_description => "This is my current project for CS184. It's an open source project to make a progressbar widget",
+                         :server_id => nil } %>
+
+  <%= render :partial => "server_display",
+             :locals => {:server => nil,
+                         :server_name => "Botanical Maps",
+                         :server_url => "http://www.botanicalmaps.com",
+                         :server_description => "This is a site hosted on Heroku for development of the Botanical Maps Project",
+                         :server_id => nil } %>
+
+  <%= render :partial => "server_display",
+             :locals => {:server => nil,
+                         :server_name => "PlantParent",
+                         :server_url => "http://plantparent.herokuapp.com",
+                         :server_description => "This project I made with a few friends for a CS147 class at Stanford",
+                         :server_id => nil } %>
+
+  <%= render :partial => "server_display",
+             :locals => {:server => nil,
+                         :server_name => "NodeJS Server for CS184",
+                         :server_url => "http://www.botanicalquestion.com",
+                         :server_description => "This is a NodeJS server currently hosted on Amazon AWS services",
+                         :server_id => nil} %>
+<% end %>

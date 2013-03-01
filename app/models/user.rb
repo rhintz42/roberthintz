@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
                   :picture_path,
                   :username,
                   :profile_photo
+  
+  has_many :servers
 
   has_secure_password
   validates_confirmation_of :password

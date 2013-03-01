@@ -1,0 +1,16 @@
+<div class="header_right_div">
+	<% if current_user then %>
+		<a href="<%= user_path(current_user[:id]) %>" class="header_right_button">
+			User Profile
+		</a>
+	<% else %>
+	  <a href="<%= new_user_path %>" class="header_right_button">
+	    Signup
+	  </a>
+  <% end %>
+</div>
+<div class="header_right_div">
+  <a href="#" class="header_right_button">
+    Help (Not Implemented)
+  </a>
+</div>

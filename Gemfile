@@ -5,8 +5,8 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-#gem 'sqlite3'
-gem 'pg'
+gem 'sqlite3'
+#gem 'pg'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -39,7 +39,7 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "capybara"
   gem "guard-rspec"
-  #gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'guard-livereload'
   gem 'rb-readline'
 end
