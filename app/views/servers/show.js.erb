@@ -1,0 +1,6 @@
+$('#server_form_<%=@server[:id]%>').hide().after('<%= j render :partial => "server_display",
+																												:locals => {:server => @server,
+																																		:server_name => @server.name,
+																																		:server_url => @server.url,
+																																		:server_description => @server.description,
+																																		:server_id => @server[:id] } %>')

@@ -1,5 +1,5 @@
 <div class="servers_options">
-  <%= link_to "Add Server", new_server_path %>
+  <%= link_to "Add Server", new_server_path, id: "new_server", remote: true %>
 </div>
 <% for server in @servers do %>
   <%= render :partial => "server_display",
