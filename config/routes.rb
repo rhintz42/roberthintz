@@ -1,4 +1,7 @@
 Roberthintz::Application.routes.draw do
+  resources :transactions
+
+
   #get "servers/index"
 
   resources :links
