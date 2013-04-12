@@ -1,4 +1,7 @@
 Roberthintz::Application.routes.draw do
+  resources :signs
+
+
   resources :transactions
 
 

@@ -1,3 +1,31 @@
 // Place all the styles related to the Transactions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.transaction {
+  background-color: #616161;
+  margin: 10px;
+  color: #e9e9e9;
+  padding: 5px;
+}
+
+.Amazon {
+  background-color: #00C23D;
+}
+
+.Food {
+  background-color: #4D3B00;
+}
+
+.Transportation {
+  background-color: #5460FF;
+}
+
+.Utilities {
+  background-color: #984ED4;
+}
+
+.transaction-price {
+  font-size: 24px;
+  margin: 5px;
+}

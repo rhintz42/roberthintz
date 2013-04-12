@@ -1,0 +1,35 @@
+<h1>Listing signs</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Chapter</th>
+    <th>Right handshape begin</th>
+    <th>Right handshape end</th>
+    <th>Left handshape begin</th>
+    <th>Left handshape end</th>
+    <th>Photo path</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @signs.each do |sign| %>
+  <tr>
+    <td><%= sign.name %></td>
+    <td><%= sign.chapter %></td>
+    <td><%= sign.right_handshape_begin %></td>
+    <td><%= sign.right_handshape_end %></td>
+    <td><%= sign.left_handshape_begin %></td>
+    <td><%= sign.left_handshape_end %></td>
+    <td><%= image_tag sign.sign_image_url(:thumb).to_s if sign.sign_image? %></td>
+    <td><%= link_to 'Show', sign %></td>
+    <td><%= link_to 'Edit', edit_sign_path(sign) %></td>
+    <td><%= link_to 'Destroy', sign, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sign', new_sign_path %>

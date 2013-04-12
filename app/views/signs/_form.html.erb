@@ -1,0 +1,45 @@
+<%= form_for(@sign, :html => {:multipart => true}) do |f| %>
+  <% if @sign.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sign.errors.count, "error") %> prohibited this sign from being saved:</h2>
+
+      <ul>
+      <% @sign.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :chapter %><br />
+    <%= f.number_field :chapter %>
+  </div>
+  <div class="field">
+    <%= f.label :right_handshape_begin %><br />
+    <%= f.text_field :right_handshape_begin %>
+  </div>
+  <div class="field">
+    <%= f.label :right_handshape_end %><br />
+    <%= f.text_field :right_handshape_end %>
+  </div>
+  <div class="field">
+    <%= f.label :left_handshape_begin %><br />
+    <%= f.text_field :left_handshape_begin %>
+  </div>
+  <div class="field">
+    <%= f.label :left_handshape_end %><br />
+    <%= f.text_field :left_handshape_end %>
+  </div>
+  <div class="field">
+    <%= f.label :sign_image %><br />
+    <%= f.file_field :sign_image %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

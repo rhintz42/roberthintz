@@ -25,7 +25,7 @@ gem 'thin'
 gem 'mechanize'
 gem 'bcrypt-ruby', :require => "bcrypt"
 gem 'mini_magick', :git => "git://github.com/minimagick/minimagick.git"
-#gem 'rmagick'
+gem 'rmagick', '2.13.2'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem "carrierwave"
 

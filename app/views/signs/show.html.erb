@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @sign.name %>
+</p>
+
+<p>
+  <b>Chapter:</b>
+  <%= @sign.chapter %>
+</p>
+
+<p>
+  <b>Right handshape begin:</b>
+  <%= @sign.right_handshape_begin %>
+</p>
+
+<p>
+  <b>Right handshape end:</b>
+  <%= @sign.right_handshape_end %>
+</p>
+
+<p>
+  <b>Left handshape begin:</b>
+  <%= @sign.left_handshape_begin %>
+</p>
+
+<p>
+  <b>Left handshape end:</b>
+  <%= @sign.left_handshape_end %>
+</p>
+
+<p>
+  <b>Photo:</b>
+  <%= @sign.sign_image %>
+</p>
+
+
+<%= link_to 'Edit', edit_sign_path(@sign) %> |
+<%= link_to 'Back', signs_path %>
