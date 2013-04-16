@@ -29,6 +29,7 @@ Roberthintz::Application.routes.draw do
   post "users/reset_password"
   resources :users
 
+  match 'auth/:provider/callback', to: 'fitbit_sessions#create'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

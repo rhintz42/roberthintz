@@ -34,6 +34,9 @@ gem 'fog'
 gem "imgkit"
 gem 'websnap'
 
+gem 'omniauth-fitbit'
+gem 'fitgem'
+
 group :development, :test do
   gem 'rspec-rails'
   gem "factory_girl_rails"

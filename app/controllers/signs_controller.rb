@@ -1,8 +1,13 @@
 class SignsController < ApplicationController
+  
   # GET /signs
   # GET /signs.json
   def index
-    @signs = Sign.all
+    #require 'debugger'
+    #debugger
+    #a = request.env['omniauth.auth']
+    
+    @signs = Sign.all.sort_by {|sign| sign.name}
 
     respond_to do |format|
       format.html # index.html.erb
