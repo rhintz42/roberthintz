@@ -45,10 +45,12 @@ class ServersController < ApplicationController
   		if @server.save
   			format.html { redirect_to @server, notice: 'Server entry created successfully!'}
   			format.json { render json: @server, status: :created, location: @server }
-  		else
+  		  format.js
+      else
   			format.html { render action: "new" }
   			format.json { render json: @server.errors, status: :unprocessed_entity }
-  		end
+  		  format.js
+      end
   	end
   end
 

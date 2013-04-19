@@ -1,4 +1,4 @@
-<div class="server_div" id="server_form_<%=@server[:id]%>">
+<div class="server_div server_div_form">
   <%= form_for @server, :html => {:multipart => true}, :remote => true do |f| %>
     <% if @server.errors.any? %>
       <div id="error_explanation">
