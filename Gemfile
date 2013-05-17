@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem "PENIS"
+
 gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
