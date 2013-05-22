@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
                   :username,
                   :profile_photo
   
+  has_many :blogs 
   has_many :servers
 
   has_secure_password
